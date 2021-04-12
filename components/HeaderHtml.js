@@ -1,10 +1,11 @@
 import Head from 'next/head';
 
-const HeaderHtml = ({ options }) => (
+const HeaderHtml = ({description, title}) => (
     <Head>
-        <title key='title'>{ options.title || `Fiona's Blog` }</title>
-        <meta key='description' name='Description' content='A blog to share the experience of being a Front-End engineer' />
-        <meta key='viewport' name='viewport' content="initial-scale=1.0, width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charSet="utf-8"/>
+        <meta name="Description" content={description}></meta>
+        <title>{title}</title>
     </Head>
 );
 

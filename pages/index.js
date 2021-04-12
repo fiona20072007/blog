@@ -1,30 +1,43 @@
-import Link from 'next/link';
-import PostBanner from '../components/PostBanner.js';
-import * as postsData from '../lib/node/posts.js';
+import React from "react";
+import HeaderHtml from "../components/HeaderHtml";
+import * as postsData from '../lib/posts.js';
+import matter from "gray-matter";
+import Link from "next/link";
 
-const currentPage = 0;
-
-const Index = ({posts, totalPages}) => (
-    <div>
-        {posts.map(post => (
-            <Link key={post.slug} href={`/post/${post.slug}`}>
-                <a>
-                    <PostBanner {...post.options} />
-                </a>
-            </Link>
-        ))}
-    </div>
-);
+const Index = ({title, description, posts}) => {
+    const RealData = posts.map((blog) => matter(blog));
+    const ListItems = RealData.map((listItem) => listItem.data);
+    return (
+        <>
+            <HeaderHtml description={description} title={title}/>
+            <h1>Fiona's Blog ✍ </h1>
+            <div>
+                <ul>
+                    {ListItems.map((blog, i) => (
+                        <li key={i}>
+                            <Link href={`/${blog.slug}`}>
+                                <a>{blog.title}</a>
+                            </Link>
+                            <p>{blog.description}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </>
+    );
+};
 
 export default Index;
 
 
 export async function getStaticProps() {
-    const posts = await postsData.page(currentPage);
-    const totalPages = await postsData.totalPages()
+    const siteData = await import(`../config.json`);
+
     return {
         props: {
-            posts, totalPages
+            title: siteData.default.title,
+            description: siteData.default.description,
+            posts: postsData.posts,
         },
-    }
+    };
 }
