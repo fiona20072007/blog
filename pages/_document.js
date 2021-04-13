@@ -10,7 +10,7 @@ class FionaBlogDocument extends Document {
         return (
             <Html>
                 <Head />
-                <body>
+                <body class="bg-gray-200">
                 <Main />
                 <NextScript />
                 </body>

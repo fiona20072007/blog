@@ -1,9 +1,11 @@
 ---
 slug: coding-blog
 title: Coding blog
-author: Fiona
 description: Coding Post For Beautiful Code
-createdAt: 2021/04/12
+thumbnail: https://creativepro.com/wp-content/uploads/2019/05/imagetext01.jpg
+createdAt: APR 12, 2021
+tag: Test3
+layout: ../../layouts/wrapPost.js
 ---
 
 # React Functional Component

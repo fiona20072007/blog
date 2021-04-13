@@ -6,6 +6,7 @@ const HeaderHtml = ({description, title}) => (
         <meta charSet="utf-8"/>
         <meta name="Description" content={description}></meta>
         <title>{title}</title>
+        <link href="/styles/globals.css" rel="stylesheet" />
     </Head>
 );
 
