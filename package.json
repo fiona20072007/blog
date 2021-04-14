@@ -9,6 +9,10 @@
     "export": "next export"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "classnames": "^2.2.6",
     "gray-matter": "^4.0.2",
     "next": "10.1.3",
