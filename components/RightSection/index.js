@@ -3,6 +3,7 @@ import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faGithubAlt, faLinkedinIn} from '@fortawesome/free-brands-svg-icons'
 import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import Sort from "./Sort";
 
 const RightSection = () => {
     return (
@@ -37,18 +38,9 @@ const RightSection = () => {
                     </a>
                 </div>
             </div>
-            <div>
-                <p class="pb-5 font-medium border-b">CATEGORIES</p>
-                <div className="border-b-2 border-blue-300 mb-5 w-10"></div>
-            </div>
-            <div>
-                <p class="pb-5 font-medium border-b">ARCHIVES</p>
-                <div className="border-b-2 border-blue-300 mb-5 w-10"></div>
-            </div>
-            <div>
-                <p class="pb-5 font-medium border-b">TAGS</p>
-                <div className="border-b-2 border-blue-300 mb-5 w-10"></div>
-            </div>
+            <Sort type="CATEGORIES" />
+            <Sort type="ARCHIVES" />
+            <Sort type="TAGS" />
         </div>
     )
 }

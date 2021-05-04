@@ -7,6 +7,7 @@ import Layout from "../components/Layout.js"
 const Index = ({posts}) => {
     const RealData = posts.map((blog) => matter(blog));
     const ListItems = RealData.map((listItem) => listItem.data);
+
     return (
         <Layout>
             <div className="mt-1 text-3xl font-normal text-gray-600">News and Stories</div>
