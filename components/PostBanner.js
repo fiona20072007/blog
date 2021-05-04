@@ -17,7 +17,7 @@ const PostBanner = ({i, blog}) => {
                     </div>
                     <div class="flex ml-5">
                         <FontAwesomeIcon width="11" icon={faTag}/>
-                        <div class="text-sm ml-1">{blog.tag}</div>
+                        <div class="text-sm ml-1">{blog.category}</div>
                     </div>
                 </div>
                 <Link href={`/${blog.slug}`}>

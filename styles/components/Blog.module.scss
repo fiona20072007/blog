@@ -1,0 +1,124 @@
+$gray: rgba(75, 85, 99, 0.8);
+$blue: blue;
+
+.blog {
+    overflow-x: auto;
+    color: $gray;
+
+    h1, h2, h3, h4, h5, h6 {
+
+        a.anchor {
+            display: none;
+            font-size: 64%;
+            color: $blue;
+        }
+        &:hover {
+            a.anchor {
+                display: inline;
+            }
+        }
+    }
+    h1 {
+        font-size: 2.25rem;
+        margin: 2rem 0;
+        font-weight: bolder;
+    }
+    h2, h3 {
+        font-weight: bold;
+    }
+    h2 {
+        font-size: 2rem;
+        margin: 1.8rem 0;
+    }
+    h3 {
+        font-size: 1.75rem;
+        margin: 1.6rem 0;
+    }
+    h4 {
+        font-size: 1.5rem;
+        margin: 1.4rem 0;
+    }
+    h5, h6, p {
+        margin: 1rem 0;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    h6 {
+        font-size: 1.1rem;
+    }
+    a {
+        text-decoration: underline;
+        &:hover {
+            color: $gray
+        }
+    }
+    code {
+        padding: 0.2em 0.4em;
+        font-size: 90%;
+        background-color: rgba(136, 136, 136, 0.34);
+        border-radius: 5px;
+    }
+    img, video {
+        @media screen and (min-width: 768px) {
+            max-width: 60%;
+        }
+        margin: 1rem auto;
+    }
+    ul, ol {
+        margin: 1rem 2rem;
+        ul, ol {
+            margin: 0 0 0 2rem;
+        }
+    }
+    ul {
+        list-style-type: disc;
+        ul {
+            list-style-type: circle;
+            ul {
+                list-style-type: square;
+            }
+        }
+    }
+    ol {
+        list-style-type: decimal;
+        ol {
+            list-style-type: lower-alpha;
+        }
+    }
+    blockquote {
+        padding: 0 1em;
+        color: #7f9e8c;
+        border-left: .25em solid #4a4a4a;
+    }
+    .tableContainer {
+        overflow-x: auto;
+
+        table {
+            th, td {
+                padding: 0.375rem 0.8125rem;
+                border: 2px solid #ffffff;
+                white-space: nowrap;
+            }
+            tr {
+                &:hover {
+                    background: #ffffff16;
+                }
+            }
+        }
+    }
+    .videoContainer {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+
+        iframe, object, embed {
+            position: absolute;
+            top: 0;left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
