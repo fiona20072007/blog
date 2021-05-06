@@ -18,9 +18,10 @@ const Index = ({posts}) => {
             <p className="mt-4 font-light text-gray-400">A Simple Markdown Blog build with Nextjs, including
                 experience sharing.</p>
             {
-                history.query === {} && ListItems.map((blog, i) => (
+                JSON.stringify(history.query) === '{}'  && ListItems.map((blog, i) => (
                     <PostBanner key={i} blog={blog}/>
-                ))}
+                ))
+            }
             {
                 history.query["categories"] !== undefined && ListItems.filter(list => {
                     return list.categories === history.query["categories"]

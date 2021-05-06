@@ -17,7 +17,9 @@ export default function Layout({
                 <div className="bg-gray-100 border-r w-3/12 p-7 font-sans">
                     <Link href="/">
                         <div className="flex mt-3 cursor-pointer">
-                            <Image priority src="/puzzle.png" alt="puzzle" width="35" height="35"/>
+                            <div className="mt-1">
+                                <Image priority src="/puzzle.png" alt="puzzle" width="25" height="25"/>
+                            </div>
                             <h1 className="text-3xl font-normal ml-2">Fiona's Blog</h1>
                         </div>
                     </Link>

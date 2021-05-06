@@ -38,9 +38,11 @@ const RightSection = ({ListItems}) => {
                     </a>
                 </div>
             </div>
-            <Sort type="CATEGORIES" ListItems={ListItems} />
-            <Sort type="ARCHIVES" ListItems={ListItems} />
-            <Sort type="TAGS" ListItems={ListItems} />
+            <div className="mr-10 mt-10">
+                <Sort type="CATEGORIES" ListItems={ListItems} />
+                <Sort type="ARCHIVES" ListItems={ListItems} />
+                <Sort type="TAGS" ListItems={ListItems} />
+            </div>
         </div>
     )
 }
