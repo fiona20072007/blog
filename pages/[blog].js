@@ -2,9 +2,11 @@ import React from "react";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
+import Layout from "../components/Layout";
 import styles from "../styles/components/Blog.module.scss"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCalendarDay, faTag} from "@fortawesome/free-solid-svg-icons";
+import * as postsData from "../lib/posts";
 
 const CodeBlock = ({language, value}) => {
     return (
@@ -14,11 +16,14 @@ const CodeBlock = ({language, value}) => {
     );
 };
 
-const Blog = ({content, data}) => {
-    const frontmatter = data;
+const Blog = ({jsonStringData, posts}) => {
+    const frontmatter = matter(JSON.parse(jsonStringData).default).data;
+    const content = matter(JSON.parse(jsonStringData).default).content
+    const RealData = posts.map((blog) => matter(blog));
+    const ListItems = RealData.map((listItem) => listItem.data);
 
     return (
-        <>
+        <Layout ListItems={ListItems}>
             <div className="mt-1 text-3xl text-gray-600">
                 <h1>{frontmatter.title}</h1>
             </div>
@@ -30,7 +35,7 @@ const Blog = ({content, data}) => {
                 </div>
                 <div className="flex ml-5">
                     <FontAwesomeIcon width="11" icon={faTag}/>
-                    <div className="text-sm ml-1">{frontmatter.category}</div>
+                    <div className="text-sm ml-1">{frontmatter.categories}</div>
                 </div>
             </div>
             <img className="rounded-md shadow w-full mb-5"
@@ -51,16 +56,20 @@ const Blog = ({content, data}) => {
                     })}
                 </div>
             </div>
-        </>
+        </Layout>
     );
 };
 
 export default Blog;
 
-Blog.getInitialProps = async (context) => {
+export async function getServerSideProps(context) {
     const {blog} = context.query;
     const content = await import(`../content/${blog}.md`);
-    const data = matter(content.default);
-
-    return {...data};
-};
+    const jsonStringData = JSON.stringify(content);
+    const posts = postsData.posts
+    return {
+        props: {
+            jsonStringData, posts
+        }
+    }
+}

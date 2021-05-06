@@ -3,9 +3,9 @@ slug: coding-blog
 title: Coding blog
 description: Coding Post For Beautiful Code
 thumbnail: https://creativepro.com/wp-content/uploads/2019/05/imagetext01.jpg
-createdAt: APR 12, 2021
-tag: [Test3]
-category: javascript
+createdAt: MAY 12, 2021
+tag: [Test]
+categories: javascript
 ---
 
 # React Functional Component

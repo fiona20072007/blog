@@ -7,7 +7,8 @@ import React from "react";
 export default function Layout({
                                    children,
                                    description = "A Simple Markdown Blog build with Nextjs.",
-                                   title = "Fiona's Blog Site"
+                                   title = "Fiona's Blog Site",
+                                   ListItems
                                }) {
     return (
         <>
@@ -27,7 +28,7 @@ export default function Layout({
                 <div class="w-9/12 bg-gray-50 p-9 font-sans ">
                     {children}
                 </div>
-                <div class="w-4/12 bg-gray-50"><RightSection/></div>
+                <div class="w-4/12 bg-gray-50"><RightSection ListItems={ListItems}/></div>
             </div>
         </>
     )
