@@ -17,11 +17,11 @@ const PostBanner = ({i, blog}) => {
                     </div>
                     <div class="flex ml-5">
                         <FontAwesomeIcon width="11" icon={faTag}/>
-                        <div class="text-sm ml-1">{blog.category}</div>
+                        <div class="text-sm ml-1">{blog.categories}</div>
                     </div>
                 </div>
                 <Link href={`/${blog.slug}`}>
-                    <img class="rounded-lg shadow w-full hover:opacity-50 transition-opacity duration-300" src={blog.thumbnail} alt={blog.title} />
+                    <img class="rounded-lg shadow w-full hover:opacity-50 transition-opacity duration-300 cursor-pointer" src={blog.thumbnail} alt={blog.title} />
                 </Link>
                 <div class="mt-5 mb-5">{blog.description}</div>
                 <Link href={`/${blog.slug}`}>

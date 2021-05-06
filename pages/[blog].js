@@ -16,9 +16,10 @@ const CodeBlock = ({language, value}) => {
     );
 };
 
-const Blog = ({jsonStringData, posts}) => {
-    const frontmatter = matter(JSON.parse(jsonStringData).default).data;
-    const content = matter(JSON.parse(jsonStringData).default).content
+const Blog = ({content, posts}) => {
+    console.log(content)
+    const frontmatter = content.data;
+    const blogContent = content.content
     const RealData = posts.map((blog) => matter(blog));
     const ListItems = RealData.map((listItem) => listItem.data);
 
@@ -41,8 +42,8 @@ const Blog = ({jsonStringData, posts}) => {
             <img className="rounded-md shadow w-full mb-5"
                  src={frontmatter.thumbnail} alt={frontmatter.title}/>
             <ReactMarkdown
-                escapeHtml={true}
-                source={content}
+                escapeHtml={false}
+                source={blogContent}
                 className={styles.blog}
                 renderers={{code: CodeBlock}}
             />
@@ -64,12 +65,13 @@ export default Blog;
 
 export async function getServerSideProps(context) {
     const {blog} = context.query;
-    const content = await import(`../content/${blog}.md`);
-    const jsonStringData = JSON.stringify(content);
+    const mdContent = await import(`../content/${blog}.md`);
+
+    const content = matter(mdContent.default, "utf8")
     const posts = postsData.posts
     return {
         props: {
-            jsonStringData, posts
+            content, posts
         }
     }
 }

@@ -49,12 +49,13 @@ const Sort = ({type, ListItems}) => {
             <div className="mb-5 flex flex-wrap">
                 {type !== "TAGS" && tags.map(tag => {
                     return <div
-                        className="mr-5 tracking-wider uppercase text-xs font-semibold mb-3 w-full">
+                        className="mr-5 tracking-wide text-sm mb-5 w-full font-light">
                         <Link href={`/?${type.toLowerCase()}=${tag.substr(0,tag.length-4)}`}>{tag}</Link></div>
                 })}
                 {type === "TAGS" && tags.map(tag => {
                     return <div
-                        className="mr-5 bg-gray-200 pl-4 pr-4 pt-1 pb-1 tracking-wider uppercase text-xs font-semibold rounded mb-3">{tag}</div>
+                        className="mr-5 bg-gray-200 pl-4 pr-4 pt-1 pb-1 tracking-wider uppercase text-xs font-semibold rounded mb-3">
+                        <Link href={`/?${type.toLowerCase()}=${tag}`}>{tag}</Link></div>
                 })}
             </div>
         </div>
