@@ -2,7 +2,6 @@ import React from "react";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
-import Layout from "../components/Layout";
 import styles from "../styles/components/Blog.module.scss"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCalendarDay, faTag} from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +18,7 @@ const Blog = ({content, data}) => {
     const frontmatter = data;
 
     return (
-        <Layout>
+        <>
             <div className="mt-1 text-3xl text-gray-600">
                 <h1>{frontmatter.title}</h1>
             </div>
@@ -52,7 +51,7 @@ const Blog = ({content, data}) => {
                     })}
                 </div>
             </div>
-        </Layout>
+        </>
     );
 };
 
